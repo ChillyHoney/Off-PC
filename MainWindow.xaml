@@ -1,0 +1,60 @@
+﻿<Window x:Class="Off_PC.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:Off_PC"
+        mc:Ignorable="d"
+        Title="Off-PC" Height="406" Width="281" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Padding="2" UseLayoutRounding="False">
+    <Grid Margin="0,10,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Current time" HorizontalAlignment="Center" Margin="10,0" VerticalAlignment="Top" RenderTransformOrigin="1.287,-2.395" Height="41" Width="322" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+        <Label Content="Current time to shutdown" HorizontalAlignment="Center" Margin="10,41,10,0" VerticalAlignment="Top" RenderTransformOrigin="1.287,-2.395" Height="34" Width="322" FontSize="16" HorizontalContentAlignment="Center"/>
+
+        <!--  <GroupBox Header="Choose method" HorizontalAlignment="Left" Height="136" Margin="0,80,0,0" VerticalAlignment="Top" Width="274" FontWeight="Bold"/>
+        <StackPanel>           
+            <RadioButton Content="After no sound detection within 2 minutes" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top"/>
+            <RadioButton Content="After selecting amount of time" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top"/>
+            <xctk:IntegerUpDown HorizontalAlignment="Left" Margin="26,145,0,0" VerticalAlignment="Top" Width="69"/>
+            <RadioButton Content="After setting the date" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top"/>
+        </StackPanel>
+        -->
+
+        <GroupBox Header="Choose method" HorizontalAlignment="Left" Height="136" Margin="0,80,0,0" VerticalAlignment="Top" Width="274" FontWeight="Bold">
+            <StackPanel Margin="0,-18,-2,-13">
+                <RadioButton Content="After no sound detection within 2 minutes" Margin="0,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontWeight="Normal"/>
+                <RadioButton Content="After selecting amount of time" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                <xctk:IntegerUpDown HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="88" FontWeight="Normal"/>
+                <RadioButton Content="After setting the date" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                <xctk:DateTimePicker HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0" Width="253" Format="RFC1123" CurrentDateTimePart="Hour24"/>
+            </StackPanel>
+        </GroupBox>
+
+
+
+        <GroupBox Header="Choose action" HorizontalAlignment="Left" Height="90" Margin="0,221,0,0" VerticalAlignment="Top" Width="274" FontWeight="Bold">
+            <StackPanel Margin="0,-18,-2,-13">
+                <RadioButton Content="Shutdown" Margin="0,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontWeight="Normal"/>
+                <RadioButton Content="Reboot" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Bottom" FontWeight="Normal" RenderTransformOrigin="2.018,-0.533"/>
+                <RadioButton Content="Logout" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+            </StackPanel>
+        </GroupBox>
+
+
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="158,325,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Ok" HorizontalAlignment="Left" Margin="45,325,0,0" VerticalAlignment="Top" Width="75"/>
+
+
+
+
+
+    </Grid>
+</Window>
