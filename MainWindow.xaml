@@ -5,19 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:Off_PC"
-        mc:Ignorable="d"
-        Title="Off-PC" Height="406" Width="281" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Padding="2" UseLayoutRounding="False">
-    <Grid Margin="0,10,0,0">
+        ResizeMode="NoResize"
+        mc:Ignorable="d"                  
+        Title="Off-PC" Height="372" Width="281" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Padding="2" UseLayoutRounding="False"
+        Background="White" 
+        Foreground="{x:Null}"
+        Visibility="Visible"
+        WindowStyle="ToolWindow">
+    <Grid Margin="0,10,0,0" Height="363" VerticalAlignment="Top">
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="0*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="325*"/>
+            <RowDefinition Height="29*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="82*"/>
+            <ColumnDefinition Width="9*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Current time" HorizontalAlignment="Center" Margin="10,0" VerticalAlignment="Top" RenderTransformOrigin="1.287,-2.395" Height="41" Width="322" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-        <Label Content="Current time to shutdown" HorizontalAlignment="Center" Margin="10,41,10,0" VerticalAlignment="Top" RenderTransformOrigin="1.287,-2.395" Height="34" Width="322" FontSize="16" HorizontalContentAlignment="Center"/>
+        <Label Name="LiveTimeLabel" Content="00:00:00" HorizontalAlignment="Center" Margin="-23,-8,-24,0" VerticalAlignment="Top" RenderTransformOrigin="1.287,-2.395" Height="35" Width="322" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+        <Label Name="CurrentTimeTo" Content="00:00:00" HorizontalAlignment="Center" FontSize="16" FontFamily="Arial" Grid.ColumnSpan="2" Margin="0,13,0,280" Grid.Row="1" />
+
+
 
         <!--  <GroupBox Header="Choose method" HorizontalAlignment="Left" Height="136" Margin="0,80,0,0" VerticalAlignment="Top" Width="274" FontWeight="Bold"/>
         <StackPanel>           
@@ -28,29 +37,31 @@
         </StackPanel>
         -->
 
-        <GroupBox Header="Choose method" HorizontalAlignment="Left" Height="136" Margin="0,80,0,0" VerticalAlignment="Top" Width="274" FontWeight="Bold">
-            <StackPanel Margin="0,-18,-2,-13">
-                <RadioButton Content="After no sound detection within 2 minutes" Margin="0,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontWeight="Normal"/>
-                <RadioButton Content="After selecting amount of time" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                <xctk:IntegerUpDown HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="88" FontWeight="Normal"/>
-                <RadioButton Content="After setting the date" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                <xctk:DateTimePicker HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0" Width="253" Format="RFC1123" CurrentDateTimePart="Hour24"/>
+        <GroupBox Header="Choose method" HorizontalAlignment="Left" Height="136" Margin="0,33,-1,0" VerticalAlignment="Top" Width="274" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Row="1">
+            <StackPanel Margin="0,-18,-2,-13" HorizontalAlignment="Right" Width="264">
+                <RadioButton x:Name="rBtn_NoSound" Content="After no sound detection within 2 minutes"  Margin="0,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontWeight="Normal" Checked="rBtn_NoSound_Checked"/>
+                <RadioButton Name="AmountOfTimeTo" Content="After selecting amount of time" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" FontWeight="Normal" Checked="AmountOfTimeTo_Checked"/>
+                <xctk:IntegerUpDown x:Name="PutTime" Value ="0" Minimum="0" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="88" FontWeight="Normal"/>
+                <RadioButton x:Name="SetTheDate" Content="After setting the date" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" FontWeight="Normal" Checked="SetTheDate_Checked"/>
+                <xctk:DateTimePicker x:Name="Calendar"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0" Width="253" Format="RFC1123" CurrentDateTimePart="Hour24"/>
             </StackPanel>
         </GroupBox>
 
 
 
-        <GroupBox Header="Choose action" HorizontalAlignment="Left" Height="90" Margin="0,221,0,0" VerticalAlignment="Top" Width="274" FontWeight="Bold">
+        <GroupBox Header="Choose action" HorizontalAlignment="Left" Height="90" Margin="0,174,-1,0" VerticalAlignment="Top" Width="274" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Row="1">
             <StackPanel Margin="0,-18,-2,-13">
-                <RadioButton Content="Shutdown" Margin="0,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontWeight="Normal"/>
-                <RadioButton Content="Reboot" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Bottom" FontWeight="Normal" RenderTransformOrigin="2.018,-0.533"/>
-                <RadioButton Content="Logout" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                <RadioButton Content="Shutdown" x:Name="rBtn_Shutdown" Margin="0,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontWeight="Normal" IsChecked="True"  />
+                <RadioButton Content="Reboot" x:Name="rBtn_Reboot" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Bottom" FontWeight="Normal" />
+                <RadioButton Content="Logout" x:Name="rBtn_Logout" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" FontWeight="Normal" />
             </StackPanel>
         </GroupBox>
 
 
-        <Button Content="Cancel" HorizontalAlignment="Left" Margin="158,325,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Ok" HorizontalAlignment="Left" Margin="45,325,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Name="btn_Abort" Content="Abort" HorizontalAlignment="Left" Margin="158,282,0,0" VerticalAlignment="Top" Width="75" Height="20" Grid.Row="1" Click="Button_Click_Abort"/>
+        <Button Content="Ok" HorizontalAlignment="Left" Margin="45,282,0,0" VerticalAlignment="Top" Width="75" Height="20" Grid.Row="1" Click="Button_Click_Ok"/>
+        <CheckBox x:Name="Btn_BlockAbort" Content="Abort blocking" HorizontalAlignment="Left" Margin="133,199,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" Click="Btn_BlockAbort_Checked"/>
+        <TextBlock x:Name="Warning" Foreground="White" Text="Remember! You will not be able to cancel it!" FontWeight="DemiBold" FontSize="11" HorizontalAlignment="Left" Margin="123,219,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="-0.122,-0.688" Width="142" Grid.ColumnSpan="2"/>
 
 
 
