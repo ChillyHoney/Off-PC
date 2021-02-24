@@ -3,7 +3,6 @@ Simple GUI program to schedule system shutdown, reboot and logout. This program 
 You can also block aborting the schedule hiding app in the tray, which causes problem to kids.
 This WPF app has too current time and countdown timer to logoff and etc.
 
-    //------------//
 //WORKING IN PROGRESS//
-    //------------//
+
 
