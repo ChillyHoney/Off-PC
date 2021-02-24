@@ -5,4 +5,6 @@ This WPF app has too current time and countdown timer to logoff and etc.
 
 //WORKING IN PROGRESS//
 
+Try it on yourself and send me feedback - m.witt@int.pl
+
 
